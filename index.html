@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mon site — Template Google‑Sites style</title>
+  <meta name="description" content="Template simple, responsive et autonome à intégrer (iframe) dans Google Sites." />
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --accent:#06b6d4; --muted:#94a3b8; --glass: rgba(255,255,255,0.03);
+      --radius:14px; --maxw:1100px; --gap:20px; font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#071024 0%, #061226 60%);color:#e6eef8}
+    .wrap{max-width:var(--maxw);margin:28px auto;padding:28px;border-radius:18px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));backdrop-filter: blur(6px)}
+    header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:52px;height:52px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700}
+    nav a{color:var(--muted);text-decoration:none;margin-left:16px;font-size:15px}
+    .hero{display:flex;gap:24px;align-items:center;margin-top:28px}
+    .hero-left{flex:1}
+    h1{font-size:28px;margin:0 0 8px}
+    p.lead{color:var(--muted);margin:0 0 18px}
+    .cta{display:inline-block;padding:10px 16px;border-radius:10px;background:var(--accent);color:#042029;text-decoration:none;font-weight:600}
+    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 24px rgba(2,6,23,0.6)}
+    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:18px}
+    .feature{padding:14px;border-radius:10px;background:var(--glass)}
+    .editor-toggle{font-size:13px;color:var(--muted);cursor:pointer;border:1px dashed rgba(255,255,255,0.04);padding:8px;border-radius:8px}
+    footer{margin-top:26px;color:var(--muted);font-size:13px;text-align:center}
+    /* responsive */
+    @media(max-width:780px){.hero{flex-direction:column}.logo{width:44px;height:44px}}
+    /* small util styles */
+    .grid-2{display:grid;grid-template-columns:1fr 320px;gap:16px}
+    @media(max-width:980px){.grid-2{grid-template-columns:1fr}}
+    input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    .btn{display:inline-block;padding:10px 12px;border-radius:10px;background:var(--accent);color:#042029;font-weight:600;text-decoration:none}
+    .muted{color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="wrap" id="site-root">
+    <header>
+      <div class="brand">
+        <div class="logo">LS</div>
+        <div>
+          <div contenteditable id="site-title" style="font-weight:700">Mon agence</div>
+          <div id="site-tag" class="muted" contenteditable>Agence web • Création & maintenance</div>
+        </div>
+      </div>
+      <nav class="muted">
+        <a href="#" onclick="scrollToSec(event,'features')">Features</a>
+        <a href="#" onclick="scrollToSec(event,'pricing')">Pricing</a>
+        <a href="#" onclick="scrollToSec(event,'contact')">Contact</a>
+        <span class="editor-toggle" onclick="toggleEditor()">Toggle editor</span>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-left">
+        <h1 contenteditable id="hero-title">Site propre, simple et rapide à intégrer</h1>
+        <p class="lead" contenteditable id="hero-lead">Ce template est autonome : un seul fichier HTML à héberger. Tu peux l'intégrer dans Google Sites via l'option "Intégrer > URL" (ou en iframe).</p>
+        <div style="display:flex;gap:12px;align-items:center">
+          <a class="cta" id="primary-cta" href="#contact">Contacte-nous</a>
+          <a class="btn" id="secondary-cta" href="#pricing">Voir les offres</a>
+        </div>
+      </div>
+      <div style="width:360px" class="card">
+        <div class="muted" style="font-size:13px;margin-bottom:8px">Aperçu rapide</div>
+        <div class="features">
+          <div class="feature"><strong>Responsive</strong><div class="muted">S'adapte aux mobiles et tablettes</div></div>
+          <div class="feature"><strong>Autonome</strong><div class="muted">Aucun CDN externe requis</div></div>
+          <div class="feature"><strong>Modulable</strong><div class="muted">Édite le texte directement (contenteditable)</div></div>
+        </div>
+      </div>
+    </section>
+
+    <main style="margin-top:18px">
+      <section id="features" class="card" style="margin-bottom:12px">
+        <h3>Ce que contient ce fichier</h3>
+        <ul class="muted">
+          <li>Header + navigation</li>
+          <li>Bloc hero éditable</li>
+          <li>Sections features, pricing, contact</li>
+          <li>Formulaire contact (mailto) et scripts légers</li>
+        </ul>
+      </section>
+
+      <div class="grid-2">
+        <section id="pricing" class="card">
+          <h3>Offres</h3>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
+            <div class="feature" style="flex:1">
+              <strong>Site vitrine</strong>
+              <div class="muted">À partir de 250€ — hébergement & support en option</div>
+            </div>
+            <div class="feature" style="flex:1">
+              <strong>Pack agence</strong>
+              <div class="muted">Abonnement mensuel pour maintenance</div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="card">
+          <h4 class="muted">Contact rapide</h4>
+          <form onsubmit="submitForm(event)">
+            <input id="name" placeholder="Ton nom" required />
+            <input id="email" type="email" placeholder="Email" required />
+            <textarea id="message" rows="4" placeholder="Message"></textarea>
+            <div style="margin-top:8px"><button class="btn" type="submit">Envoyer</button></div>
+            <div id="form-msg" class="muted" style="margin-top:8px;font-size:13px"></div>
+          </form>
+        </aside>
+      </div>
+
+      <section class="card" style="margin-top:12px">
+        <h3>Galerie</h3>
+        <div class="muted">Mets ici des captures d'écran ou des images; remplace les &lt;figure&gt; par tes images.</div>
+        <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
+          <figure style="width:220px;background:var(--glass);padding:8px;border-radius:8px">Image 1</figure>
+          <figure style="width:220px;background:var(--glass);padding:8px;border-radius:8px">Image 2</figure>
+          <figure style="width:220px;background:var(--glass);padding:8px;border-radius:8px">Image 3</figure>
+        </div>
+      </section>
+
+      <section id="contact" class="card" style="margin-top:12px">
+        <h3>Contact</h3>
+        <p class="muted">Utilise le formulaire à droite ou envoie un email : <a class="muted" href="mailto:hello@tondomaine.com">hello@tondomaine.com</a></p>
+      </section>
+    </main>
+
+    <footer>
+      Template — autonome • Héberge où tu veux. Pour intégrer dans Google Sites : héberge ce fichier (GitHub Pages, Netlify, ton serveur) puis utilise `Intégrer > URL` ou ajoute un <code>&lt;iframe&gt;</code> pointant vers l'URL.
+    </footer>
+  </div>
+
+  <script>
+    /* Utilitaires d'intégration et edition simple */
+    function scrollToSec(e,id){e.preventDefault();document.getElementById(id).scrollIntoView({behavior:'smooth'});}
+    function submitForm(e){e.preventDefault();const name=document.getElementById('name').value;const email=document.getElementById('email').value;const message=document.getElementById('message').value;const mailto='mailto:hello@tondomaine.com?subject=' + encodeURIComponent('Contact de '+name)+'&body='+encodeURIComponent(message+'\n\nContact: '+email); window.location.href=mailto;}
+
+    // Editor quick toggle: sauvegarde dans localStorage pour preview
+    function toggleEditor(){const root=document.getElementById('site-root');const is= root.getAttribute('data-editor')==='on';if(is){root.removeAttribute('data-editor');disableEditor();}else{root.setAttribute('data-editor','on');enableEditor();}}
+    function enableEditor(){[...document.querySelectorAll('[contenteditable]')].forEach(el=>{el.setAttribute('contenteditable','true');el.style.outline='2px dashed rgba(255,255,255,0.06)'; el.addEventListener('blur',saveEdits);});}
+    function disableEditor(){[...document.querySelectorAll('[contenteditable]')].forEach(el=>{el.removeAttribute('contenteditable');el.style.outline='none';el.removeEventListener('blur',saveEdits);});}
+    function saveEdits(e){const state={};[...document.querySelectorAll('[id]')].forEach(el=>{state[el.id]=el.innerHTML});localStorage.setItem('site_edit',JSON.stringify(state));}
+    function loadEdits(){try{const s=JSON.parse(localStorage.getItem('site_edit')||'{}');Object.keys(s).forEach(k=>{const el=document.getElementById(k); if(el) el.innerHTML=s[k];});}catch(e){/*ignore*/}}
+    loadEdits();
+  </script>
+</body>
+</html>
